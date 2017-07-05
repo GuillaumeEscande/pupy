@@ -12,6 +12,10 @@ import json
 import logging
 
 
+import _version
+
+__version__ = _version.get_versions()['version']
+
 LOGGER = logging.getLogger(__name__)
 logging.root.setLevel( logging.INFO )
 
