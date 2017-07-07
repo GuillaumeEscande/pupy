@@ -37,5 +37,7 @@ setup(
         'console_scripts': [
             'pupy=pupy.pupy:main',
         ]
-    }
+    },
+    setup_requires=['pytest-runner', 'pytest-pylint'],
+    tests_require=['pytest', 'pylint'],
 )
