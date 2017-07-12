@@ -1,5 +1,4 @@
 coverage==4.4.1
-pkg-resources==0.0.0
 setuptools-scm==1.15.6
 versioneer==0.18
 virtualenv==15.1.0

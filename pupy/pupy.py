@@ -12,12 +12,29 @@ import json
 import logging
 
 
+import pupy_config
+
+
 import _version
 
 __version__ = _version.get_versions()['version']
 
 LOGGER = logging.getLogger(__name__)
 logging.root.setLevel( logging.INFO )
+
+
+def call_with_config(function, args):
+    """Call a function using the config file found in the args"""
+    config_file = args.config
+    verbose = args.verbose
+
+    if verbose:
+        logging.root.setLevel(logging.DEBUG)
+        LOGGER.setLevel(logging.DEBUG)
+        LOGGER.info('%s with config %s', function.__name__, config_file)
+
+    config = pupy_config.PupyConfig.load(config_file)
+    function(config, args)
 
 
 def do_update(args):
@@ -65,8 +82,8 @@ def main():
     version_parser = subparser.add_parser('version')
     version_parser.set_defaults(func=do_version)
 
-    args = parser.parse_args()
-    args.func(args)
+    largs = parser.parse_args()
+    largs.func(args)
 
 if __name__ == '__main__':
     main()
