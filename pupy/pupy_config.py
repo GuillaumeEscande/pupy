@@ -8,7 +8,7 @@ The pupy configuration module
 
 import json
 
-from datasources.datasource import Datasource
+from pupy.datasources.datasource import DataSource
 
 class PupyConfig( object ):
     """A config for pupy"""
@@ -28,11 +28,26 @@ class PupyConfig( object ):
     @property
     def datasources( self ):
         """
-        Return une list of Datasource
+        Return list of Datasource
         :rtype: list(datasource.datasource.Datasource)
         """
         if self.__datasources is None:
-            datas = datasource.datasource.Datasource("TEST")
-            self.__datasources.append(datas)
+            self.__datasources = []
+            for ds in self.json_data["datasources"]:
+                self.__datasources.append( DataSource.load( ds ) )            
 
         return self.__datasources
+
+    @property
+    def workspace( self ):
+        """
+        Return workspace string
+        """
+        return self.json_data["workspace"] 
+
+    @property
+    def name( self ):
+        """
+        Return name string
+        """
+        return self.json_data["name"] 

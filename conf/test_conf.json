@@ -1,0 +1,28 @@
+{
+    "name" : "Platefrome Test",
+
+    "workspace" : "workspace/test/",
+
+    "datasources" : [
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 Base",
+            "url" : ""
+        },
+        {
+            "type" : "url",
+            "name" : "Clamav Bytecode",
+            "url" : "http://database.clamav.net/bytecode.cvd"
+        },
+        {
+            "type" : "url",
+            "name" : "Clamav Main",
+            "url" : "http://database.clamav.net/main.cvd"
+        },
+        {
+            "type" : "url",
+            "name" : "Clamav Daily",
+            "url" : "http://database.clamav.net/daily.cvd"
+        }
+    ]
+}

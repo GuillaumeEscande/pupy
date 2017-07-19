@@ -1,0 +1,1 @@
+- Dans le module URL, utilisé la date du header http et la date d'écriture du fichier pour vérifier qu'une mise à jour est necessaire
