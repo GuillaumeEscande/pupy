@@ -6,3 +6,4 @@ python-slugify
 requests
 clint
 lxml
+pypac

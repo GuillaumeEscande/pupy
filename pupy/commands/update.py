@@ -7,7 +7,7 @@ import datetime
 
 LOGGER = logging.getLogger(__name__)
 
-def update(config):
+def update(config, args):
     
     LOGGER.info('Update of platform %s', config.name)
 
@@ -19,7 +19,7 @@ def update(config):
     for ds in config.datasources:
         start = datetime.datetime.now()
         LOGGER.info('Update of module %s started ad %s', ds.name, start)
-        ds.update( path )
+        ds.update( config, args, path )
         end = datetime.datetime.now()
         elapsed = end - start
         LOGGER.info('End of update on %f seconds', elapsed.total_seconds())

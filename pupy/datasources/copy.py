@@ -20,6 +20,6 @@ class Copy(datasource.DataSource):
         super(Copy, self).__init__(jsondata)
         
 
-    def update(self, workspace):
+    def update(self, config, args, workspace):
         """update"""
         print('TODO')

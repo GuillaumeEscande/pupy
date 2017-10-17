@@ -22,12 +22,12 @@ class Url(datasource.DataSource):
         """Initialize"""
         super(Url, self).__init__(jsondata)
         
-    def update(self, workspace):
+    def update(self, config, args, workspace):
         """update"""
 
         filename = slugify( self.jsondata['name'] )
 
-        dwnlder = downloader.Downloader( self.jsondata['url'] )
+        dwnlder = downloader.Downloader( self.jsondata['url'], args.proxy )
 
         dwnlder.download(os.path.join(workspace,filename))
 

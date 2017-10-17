@@ -24,13 +24,13 @@ class RhRepo(datasource.DataSource):
         super(RhRepo, self).__init__(jsondata)
         
 
-    def update(self, workspace):
+    def update(self, config, args, workspace):
         """update"""
 
         working_dir = os.path.join(workspace,slugify( self.jsondata['name'] ))
         if not os.path.exists(working_dir):
             os.makedirs(working_dir)
         
-        rhrepo = repo.Repo( self.jsondata['url'] )
+        rhrepo = repo.Repo( self.jsondata['url'], args.proxy )
 
         rhrepo.reposync(working_dir)

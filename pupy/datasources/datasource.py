@@ -13,7 +13,7 @@ class DataSource(object):
         """Initialize"""
         self.jsondata = jsondata
 
-    def update(self, workspace):
+    def update(self, config, args, workspace):
         """update"""
         raise NotImplementedError()
 
