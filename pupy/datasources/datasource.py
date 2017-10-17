@@ -28,12 +28,15 @@ class DataSource(object):
     @staticmethod
     def load( json_datasource ):
         
-        from pupy.datasources import rhrepo
-        from pupy.datasources import urlrepo
+        from datasources import rhrepo
+        from datasources import url
+        from datasources import copy
 
         if json_datasource['type'] == 'rhrepo':
             return rhrepo.RhRepo( json_datasource )
         elif json_datasource['type'] == 'url':
-            return urlrepo.UrlRepo( json_datasource )
+            return url.Url( json_datasource )
+        elif json_datasource['type'] == 'copy':
+            return copy.Copy( json_datasource )
         else :
             return None

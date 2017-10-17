@@ -12,10 +12,10 @@ import json
 import logging
 
 
-from pupy import pupy_config
-from pupy.commands import update
+import pupy_config
+from commands import update
 
-from pupy import _version
+import _version
 
 __version__ = _version.get_versions()['version']
 

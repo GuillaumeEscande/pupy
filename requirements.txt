@@ -1,7 +1,8 @@
-coverage==4.4.1
-setuptools-scm==1.15.6
-versioneer==0.18
-virtualenv==15.1.0
-python-slugify==1.2.4
-request==0.0.0
-clint==0.5.1
+coverage
+setuptools-scm
+versioneer
+virtualenv
+python-slugify
+requests
+clint
+lxml

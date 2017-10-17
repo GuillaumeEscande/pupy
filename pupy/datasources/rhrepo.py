@@ -6,8 +6,12 @@ The rhrepo datasource definitions for pupy data import
 """
 
 import logging
+import os
 
-from pupy.datasources import datasource
+from slugify import slugify
+
+from datasources import datasource
+from lib import repo
 
 
 LOGGER = logging.getLogger(__name__)
@@ -22,4 +26,11 @@ class RhRepo(datasource.DataSource):
 
     def update(self, workspace):
         """update"""
-        print('TODO')
+
+        working_dir = os.path.join(workspace,slugify( self.jsondata['name'] ))
+        if not os.path.exists(working_dir):
+            os.makedirs(working_dir)
+        
+        rhrepo = repo.Repo( self.jsondata['url'] )
+
+        rhrepo.reposync(working_dir)

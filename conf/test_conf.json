@@ -6,8 +6,8 @@
     "datasources" : [
         {
             "type" : "rhrepo",
-            "name" : "Centos 7 Base",
-            "url" : ""
+            "name" : "Centos 6 - Base",
+            "url" : "http://mirror.centos.org/centos/6/os/x86_64/"
         },
         {
             "type" : "url",
@@ -23,6 +23,12 @@
             "type" : "url",
             "name" : "Clamav Daily",
             "url" : "http://database.clamav.net/daily.cvd"
+        },
+        {
+            "type" : "copy",
+            "name" : "Sophos AV update",
+            "post-command" : "sudo /opt/sophos-av/bin/savupdate --force",
+            "src" : "/opt/sophos-av/update/cache/"
         }
     ]
 }

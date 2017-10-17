@@ -8,7 +8,7 @@ The pupy configuration module
 
 import json
 
-from pupy.datasources.datasource import DataSource
+from datasources.datasource import DataSource
 
 class PupyConfig( object ):
     """A config for pupy"""
