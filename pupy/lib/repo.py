@@ -45,7 +45,7 @@ class Repo():
             if child.getAttribute('type') == "primary":
                 primary_url = child.getElementsByTagName("location")[0].getAttribute('href')
 
-                
+        print(self.__url + primary_url)
         # primary
         primary_gz_dwn = downloader.Downloader( self.__url + primary_url, self.__proxy )
         primary_gz = primary_gz_dwn.download()

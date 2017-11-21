@@ -1,7 +1,7 @@
 {
     "name" : "Platefrome Test",
 
-    "workspace" : "D:\\PLATEFORME\\mirrors\\pupy\\",
+    "workspace" : "D:\\PLATEFORME\\DATA\\pupy\\",
 
     "datasources" : [
         {
@@ -76,7 +76,48 @@
             "name" : "Centos 7 - Visual Code",
             "url" : "https://packages.microsoft.com/yumrepos/vscode/"
         },
-		
+        
+        
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - last - Base",
+            "url" : "http://mirror.centos.org/centos/7/os/x86_64/"
+        },
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - last - Updates",
+            "url" : "http://mirror.centos.org/centos/7/extras/x86_64/"
+        },
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - last - Extras",
+            "url" : "http://mirror.centos.org/centos/7/extras/x86_64/"
+        },
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - last - Plus",
+            "url" : "http://mirror.centos.org/centos/7/centosplus/x86_64/"
+        },
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - last - Sclo",
+            "url" : "http://mirror.centos.org/centos/7/sclo/x86_64/sclo/"
+        },
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - last - Rh",
+            "url" : "http://mirror.centos.org/centos/7/sclo/x86_64/rh/"
+        },
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - gluster-fs",
+            "url" : "http://buildlogs.centos.org/centos/7/storage/x86_64/gluster-3.7/"
+        },
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - Visual Code",
+            "url" : "https://packages.microsoft.com/yumrepos/vscode/"
+        },
 		
 		
         {
@@ -86,8 +127,13 @@
         },
         {
             "type" : "rhrepo",
-            "name" : "Centos 7 - Epel",
-            "url" : "http://download.fedoraproject.org/pub/epel/7.3.1611/x86_64/"
+            "name" : "Centos 7 - last - Epel",
+            "url" : "http://download.fedoraproject.org/pub/epel/7/x86_64/"
+        },
+        {
+            "type" : "rhrepo",
+            "name" : "GlusterFS 3.12",
+            "url" : "http://mirror.centos.org/centos/7/storage/x86_64/gluster-3.12/"
         },
 
 

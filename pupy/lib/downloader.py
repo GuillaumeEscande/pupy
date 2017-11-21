@@ -61,6 +61,7 @@ class Downloader():
 
             if update:
                 try:
+                    f = None
                     f = open( path, 'wb' )
 
                     r = self.__session.get(self.__url, stream=True)
@@ -73,10 +74,11 @@ class Downloader():
                             f.flush()
                             
                 except requests.ConnectionError as e:
-                    LOGGER.error('Error on opening connection to url %s for module UrlRepo-%s', self.jsondata['url'], self.__jsondata['name'])
+                    LOGGER.error('Error on opening connection to url %s ', self.__url)
                 except IOError as e:
-                    LOGGER.error('Error on opening output file for module UrlRepo-%s', self.__jsondata['name'])
+                    LOGGER.error('Error on opening output file %s', path)
                 finally:
-                    f.close()
+                    if f is not None :
+                        f.close()
         else :
             return self.__session.get(self.__url).content
