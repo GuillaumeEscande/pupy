@@ -92,7 +92,7 @@ def main():
     if verbose:
         logging.root.setLevel(logging.DEBUG)
         LOGGER.setLevel(logging.DEBUG)
-        LOGGER.info('%s with config %s', function.__name__, config_file)
+        LOGGER.info('with config %s', config_file)
 
     config = pupy_config.PupyConfig.load(config_file)
 

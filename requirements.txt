@@ -5,5 +5,5 @@ virtualenv
 python-slugify
 requests
 clint
-lxml
+
 pypac

@@ -31,19 +31,31 @@ class Repo():
     def reposync(self, path):
         """reposync"""
 
-        working_dir = os.path.join(path,"Packages")
-        if not os.path.exists(working_dir):
-            os.makedirs(working_dir)
+        package_dir = os.path.join(path,"Packages")
+        if not os.path.exists(package_dir):
+            os.makedirs(package_dir)
+        repodata_dir = os.path.join(path,"repodata")
+        if not os.path.exists(repodata_dir):
+            os.makedirs(repodata_dir)
 
-
-        # repomd
+        # Download repo repomd file
         repomd_dwn = downloader.Downloader( self.__url + "repodata/repomd.xml", self.__proxy )
+        repomd_dwn.download(os.path.join(repodata_dir,"repomd.xml"))
+
         repomd = repomd_dwn.download()
         repomd_root = parseString(repomd)
 
         for child in repomd_root.getElementsByTagName('data'):
+            # Download all files
+            file_url = child.getElementsByTagName("location")[0].getAttribute('href')
+            checksum_node = child.getElementsByTagName("checksum")[0]
+            checksum = checksum_node.firstChild.nodeValue
+            checksum_type = checksum_node.getAttribute('type')
+            file_dwn = downloader.Downloader( self.__url + file_url, self.__proxy )
+            file_dwn.download(os.path.join(path,file_url), checksum, checksum_type)
+
             if child.getAttribute('type') == "primary":
-                primary_url = child.getElementsByTagName("location")[0].getAttribute('href')
+                primary_url = file_url
 
         print(self.__url + primary_url)
         # primary
@@ -60,4 +72,4 @@ class Repo():
             checksum_type = checksum_node.getAttribute('type')
 			
             dwnlder = downloader.Downloader( self.__url + location, self.__proxy )
-            dwnlder.download(os.path.join(working_dir,filename), checksum, checksum_type)
+            dwnlder.download(os.path.join(package_dir,filename), checksum, checksum_type)

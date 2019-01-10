@@ -4,15 +4,12 @@
     "workspace" : "D:\\PLATEFORME\\DATA\\pupy\\",
 
     "datasources" : [
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 6 - Base",
-            "url" : "http://mirror.centos.org/centos/6/os/x86_64/"
-        },
+	
+	
         {
             "type" : "rhrepo",
             "name" : "Centos 6 - Updates",
-            "url" : "http://mirror.centos.org/centos/6/extras/x86_64/"
+            "url" : "http://mirror.centos.org/centos/6/updates/x86_64/"
         },
         {
             "type" : "rhrepo",
@@ -34,90 +31,47 @@
             "name" : "Centos 6 - Rh",
             "url" : "http://mirror.centos.org/centos/6/sclo/x86_64/rh/"
         },
+		
 
-
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - Base",
-            "url" : "http://mirror.centos.org/centos/7.3.1611/os/x86_64/"
-        },
+		
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Updates",
-            "url" : "http://mirror.centos.org/centos/7.3.1611/extras/x86_64/"
+            "url" : "http://mirror.centos.org/centos/7/updates/x86_64/"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Extras",
-            "url" : "http://mirror.centos.org/centos/7.3.1611/extras/x86_64/"
+            "url" : "http://mirror.centos.org/centos/7/extras/x86_64/"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Plus",
-            "url" : "http://mirror.centos.org/centos/7.3.1611/centosplus/x86_64/"
-        },
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - Sclo",
-            "url" : "http://mirror.centos.org/centos/7.3.1611/sclo/x86_64/sclo/"
-        },
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - Rh",
-            "url" : "http://mirror.centos.org/centos/7.3.1611/sclo/x86_64/rh/"
-        },
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - gluster-fs",
-            "url" : "http://buildlogs.centos.org/centos/7/storage/x86_64/gluster-3.7/"
-        },
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - Visual Code",
-            "url" : "https://packages.microsoft.com/yumrepos/vscode/"
-        },
-        
-        
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - last - Base",
-            "url" : "http://mirror.centos.org/centos/7/os/x86_64/"
-        },
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - last - Updates",
-            "url" : "http://mirror.centos.org/centos/7/extras/x86_64/"
-        },
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - last - Extras",
-            "url" : "http://mirror.centos.org/centos/7/extras/x86_64/"
-        },
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - last - Plus",
             "url" : "http://mirror.centos.org/centos/7/centosplus/x86_64/"
         },
         {
             "type" : "rhrepo",
-            "name" : "Centos 7 - last - Sclo",
+            "name" : "Centos 7 - Sclo",
             "url" : "http://mirror.centos.org/centos/7/sclo/x86_64/sclo/"
         },
         {
             "type" : "rhrepo",
-            "name" : "Centos 7 - last - Rh",
+            "name" : "Centos 7 - Rh",
             "url" : "http://mirror.centos.org/centos/7/sclo/x86_64/rh/"
         },
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - gluster-fs",
-            "url" : "http://buildlogs.centos.org/centos/7/storage/x86_64/gluster-3.7/"
-        },
+		
+		
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Visual Code",
             "url" : "https://packages.microsoft.com/yumrepos/vscode/"
-        },
+		},
+
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - elrepo",
+            "url" : "http://mirrors.ircam.fr/pub/elrepo/elrepo/el7/x86_64/"
+        },        
 		
 		
         {
@@ -127,15 +81,15 @@
         },
         {
             "type" : "rhrepo",
-            "name" : "Centos 7 - last - Epel",
-            "url" : "http://download.fedoraproject.org/pub/epel/7/x86_64/"
+            "name" : "Centos 7 - Epel",
+            "url" : "http://download.fedoraproject.org/pub/fedora/epel/7/x86_64/"
         },
+		
         {
             "type" : "rhrepo",
-            "name" : "GlusterFS 3.12",
-            "url" : "http://mirror.centos.org/centos/7/storage/x86_64/gluster-3.12/"
+            "name" : "Centos 7 - Gitlab",
+            "url" : "https://packages.gitlab.com/gitlab/gitlab-ce/el/7/x86_64/"
         },
-
 
         {
             "type" : "url",
@@ -158,5 +112,9 @@
             "post-command" : "sudo /opt/sophos-av/bin/savupdate --force",
             "src" : "/opt/sophos-av/update/cache/"
         }
+		
+		
+		
+		
     ]
 }

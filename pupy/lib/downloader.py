@@ -46,7 +46,10 @@ class Downloader():
                 LOGGER.info(u"Téléchargement du fichier")
                 update = True
             elif checksum is not None:
-                h = hashlib.sha256()
+                if checksum_type == "sha256":
+                    h = hashlib.sha256()
+                else : 
+                    raise Esception("checksun type inconnue : " + checksum_type)
                 with open(path, 'rb', buffering=0) as f:
                     for b in iter(lambda : f.read(128*1024), b''):
                         h.update(b)
