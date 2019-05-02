@@ -10,8 +10,9 @@ import os
 
 from slugify import slugify
 
-from datasources import datasource
-from lib import repo
+from pupy.datasources import datasource
+from pupy.lib import repo
+
 
 
 LOGGER = logging.getLogger(__name__)
@@ -27,10 +28,14 @@ class RhRepo(datasource.DataSource):
     def update(self, config, args, workspace):
         """update"""
 
-        working_dir = os.path.join(workspace,slugify( self.jsondata['name'] ))
+        path = slugify( self.jsondata['name'] )
+        if "path" in self.jsondata:
+            path = self.jsondata['path']
+        working_dir = os.path.join(workspace,path)
+        
         if not os.path.exists(working_dir):
             os.makedirs(working_dir)
         
-        rhrepo = repo.Repo( self.jsondata['url'], args.proxy )
+        rhrepo = repo.Repo( self.jsondata['url'], args.proxy, config.thread )
 
         rhrepo.reposync(working_dir)

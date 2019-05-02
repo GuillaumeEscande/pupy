@@ -15,17 +15,26 @@ from pypac import PACSession, get_pac
 
 from xml.dom.minidom import parseString
 
-from lib import downloader
+from pupy.lib import downloader
+
+
+from concurrent.futures import ThreadPoolExecutor
 
 LOGGER = logging.getLogger(__name__)
+
+
+def download_file(url, proxy, path, checksum, checksum_type):
+    dwnlder = downloader.Downloader( url, proxy )
+    dwnlder.download(path, checksum, checksum_type)
 
 class Repo():
     """The generic datasource model"""
 
-    def __init__(self, url, proxy):
+    def __init__(self, url, proxy, nb_threads = 1):
         """Initialize"""
         self.__url = url
         self.__proxy = proxy
+        self.__nb_threads = nb_threads
         
 
     def reposync(self, path):
@@ -57,19 +66,21 @@ class Repo():
             if child.getAttribute('type') == "primary":
                 primary_url = file_url
 
-        print(self.__url + primary_url)
         # primary
         primary_gz_dwn = downloader.Downloader( self.__url + primary_url, self.__proxy )
         primary_gz = primary_gz_dwn.download()
         primary = zlib.decompress(primary_gz, zlib.MAX_WBITS|32)
         primary_root = parseString(primary)
         
-        for child in primary_root.getElementsByTagName('package'):
-            location = child.getElementsByTagName("location")[0].getAttribute('href')
-            filename = location.rsplit('/', 1)[-1]
-            checksum_node = child.getElementsByTagName("checksum")[0]
-            checksum = checksum_node.firstChild.nodeValue
-            checksum_type = checksum_node.getAttribute('type')
-			
-            dwnlder = downloader.Downloader( self.__url + location, self.__proxy )
-            dwnlder.download(os.path.join(package_dir,filename), checksum, checksum_type)
+
+
+        with ThreadPoolExecutor(max_workers=self.__nb_threads) as executor:
+
+            for child in primary_root.getElementsByTagName('package'):
+                location = child.getElementsByTagName("location")[0].getAttribute('href')
+                filename = location.rsplit('/', 1)[-1]
+                checksum_node = child.getElementsByTagName("checksum")[0]
+                checksum = checksum_node.firstChild.nodeValue
+                checksum_type = checksum_node.getAttribute('type')
+                
+                executor.submit(download_file, self.__url + location, self.__proxy, os.path.join(package_dir,filename), checksum, checksum_type)

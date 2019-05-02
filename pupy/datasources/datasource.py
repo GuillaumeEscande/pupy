@@ -5,7 +5,6 @@
 The datasource definitions for pupy data import
 """
 
-
 class DataSource(object):
     """The generic datasource model"""
 
@@ -28,9 +27,9 @@ class DataSource(object):
     @staticmethod
     def load( json_datasource ):
         
-        from datasources import rhrepo
-        from datasources import url
-        from datasources import copy
+        from pupy.datasources import rhrepo
+        from pupy.datasources import url
+        from pupy.datasources import copy
 
         if json_datasource['type'] == 'rhrepo':
             return rhrepo.RhRepo( json_datasource )

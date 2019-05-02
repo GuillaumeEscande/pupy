@@ -3,7 +3,7 @@
 
 import os
 import versioneer
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # Utility function to read the README file.
 # Used for the long_description.  It's nice, because now 1) we have a top level
@@ -30,8 +30,6 @@ setup(
     license = "MIT",
     keywords = "",
     
-    packages=['pupy'],
-    
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
@@ -41,6 +39,11 @@ setup(
             'pupy=pupy.pupy:main',
         ]
     },
+    
+    include_package_data=True,
+    packages=find_packages(exclude=('test')),
+
+    test_suite="test",
     setup_requires=['pytest-runner', 'pytest-pylint'],
     tests_require=['pytest', 'pylint'],
 )

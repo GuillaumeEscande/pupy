@@ -1,35 +1,50 @@
 {
-    "name" : "Platefrome Test",
+    "name" : "Platefrome UCD",
 
-    "workspace" : "D:\\PLATEFORME\\DATA\\pupy\\",
+    "workspace" : "/data/pupy",
+
+    "process": "8",
+    "thread": "10",
 
     "datasources" : [
 	
+
 	
         {
             "type" : "rhrepo",
             "name" : "Centos 6 - Updates",
-            "url" : "http://mirror.centos.org/centos/6/updates/x86_64/"
+            "url" : "http://mirror.centos.org/centos/6/updates/x86_64/",
+            "path": "mirrors/centos/6/updates/x86_64"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 6 - Extras",
-            "url" : "http://mirror.centos.org/centos/6/extras/x86_64/"
+            "url" : "http://mirror.centos.org/centos/6/extras/x86_64/",
+            "path": "mirrors/centos/6/extras/x86_64"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 6 - Plus",
-            "url" : "http://mirror.centos.org/centos/6/centosplus/x86_64/"
+            "url" : "http://mirror.centos.org/centos/6/centosplus/x86_64/",
+            "path": "mirrors/centos/6/centosplus/x86_64"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 6 - Sclo",
-            "url" : "http://mirror.centos.org/centos/6/sclo/x86_64/sclo/"
+            "url" : "http://mirror.centos.org/centos/6/sclo/x86_64/sclo/",
+            "path": "mirrors/centos/6/sclo/x86_64"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 6 - Rh",
-            "url" : "http://mirror.centos.org/centos/6/sclo/x86_64/rh/"
+            "url" : "http://mirror.centos.org/centos/6/sclo/x86_64/rh/",
+            "path": "mirrors/centos/6/sclo/x86_64"
+        },
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 6 - Epel",
+            "url" : "http://download.fedoraproject.org/pub/epel/6/x86_64/",
+            "path": "mirrors/centos/6/epel/x86_64"
         },
 		
 
@@ -37,84 +52,202 @@
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Updates",
-            "url" : "http://mirror.centos.org/centos/7/updates/x86_64/"
+            "url" : "http://mirror.centos.org/centos/7/updates/x86_64/",
+            "path": "mirrors/centos/7/updates/x86_64"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Extras",
-            "url" : "http://mirror.centos.org/centos/7/extras/x86_64/"
+            "url" : "http://mirror.centos.org/centos/7/extras/x86_64/",
+            "path": "mirrors/centos/7/extras/x86_64"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Plus",
-            "url" : "http://mirror.centos.org/centos/7/centosplus/x86_64/"
+            "url" : "http://mirror.centos.org/centos/7/centosplus/x86_64/",
+            "path": "mirrors/centos/7/centosplus/x86_64"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Sclo",
-            "url" : "http://mirror.centos.org/centos/7/sclo/x86_64/sclo/"
+            "url" : "http://mirror.centos.org/centos/7/sclo/x86_64/sclo/",
+            "path": "mirrors/centos/7/sclo/x86_64/sclo"
         },
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Rh",
-            "url" : "http://mirror.centos.org/centos/7/sclo/x86_64/rh/"
+            "url" : "http://mirror.centos.org/centos/7/sclo/x86_64/rh/",
+            "path": "mirrors/centos/7/sclo/x86_64/rh"
         },
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - elrepo",
+            "url" : "http://mirrors.ircam.fr/pub/elrepo/elrepo/el7/x86_64/",
+            "path": "mirrors/centos/7/elrepo/x86_64"
+        },      
+        {
+            "type" : "rhrepo",
+            "name" : "Centos 7 - Epel",
+            "url" : "https://dl.fedoraproject.org/pub/epel/7/x86_64/",
+            "path": "mirrors/centos/7/epel/x86_64"
+        },
+		
 		
 		
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Visual Code",
-            "url" : "https://packages.microsoft.com/yumrepos/vscode/"
-		},
-
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - elrepo",
-            "url" : "http://mirrors.ircam.fr/pub/elrepo/elrepo/el7/x86_64/"
-        },        
-		
-		
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 6 - Epel",
-            "url" : "http://download.fedoraproject.org/pub/epel/6/x86_64/"
-        },
-        {
-            "type" : "rhrepo",
-            "name" : "Centos 7 - Epel",
-            "url" : "http://download.fedoraproject.org/pub/fedora/epel/7/x86_64/"
-        },
-		
+            "url" : "https://packages.microsoft.com/yumrepos/vscode/",
+            "path": "mirrors/centos/7/vscode/x86_64"
+		},  
         {
             "type" : "rhrepo",
             "name" : "Centos 7 - Gitlab",
-            "url" : "https://packages.gitlab.com/gitlab/gitlab-ce/el/7/x86_64/"
+            "url" : "https://packages.gitlab.com/gitlab/gitlab-ce/el/7/x86_64/",
+            "path": "mirrors/centos/7/gitlab-ce/x86_64"
+        },
+
+
+
+        
+        {
+            "type" : "url",
+            "name" : "Centos 6.5 iso DVD 1",
+            "url" : "http://mirror.nsc.liu.se/centos-store/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso",
+            "path": "mirrors/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso",
+            "sha256": "c796ab378319393f47b29acd8ceaf21e1f48439570657945226db61702a4a2a1"
+        },
+        {
+            "type" : "url",
+            "name" : "Centos 6.5 iso DVD 2",
+            "url" : "http://mirror.nsc.liu.se/centos-store/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD2.iso",
+            "path": "mirrors/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD2.iso",
+            "sha256": "afd2fc37e1597c64b3c3464083c0022f436757085d9916350fb8310467123f77"
+        },
+        {
+            "type" : "url",
+            "name" : "Centos 6.5 iso LiveDVD",
+            "url" : "http://mirror.nsc.liu.se/centos-store/6.5/isos/x86_64/CentOS-6.5-x86_64-LiveDVD.iso",
+            "path": "mirrors/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-LiveDVD.iso",
+            "sha256": "e3efa9a6ca6f58ac4be0a6cdb09cc4f19125040124e1c162bc5cfef26a8926f0"
+        },
+        {
+            "type" : "url",
+            "name" : "Centos 6.5 iso minimal",
+            "url" : "http://mirror.nsc.liu.se/centos-store/6.5/isos/x86_64/CentOS-6.5-x86_64-minimal.iso",
+            "path": "mirrors/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-minimal.iso",
+            "sha256": "f9d84907d77df62017944cb23cab66305e94ee6ae6c1126415b81cc5e999bdd0"
         },
 
         {
             "type" : "url",
-            "name" : "Clamav Bytecode",
-            "url" : "http://database.clamav.net/bytecode.cvd"
+            "name" : "Centos 6.9 iso DVD 1",
+            "url" : "http://mirror.nsc.liu.se/centos-store/6.9/isos/x86_64/CentOS-6.9-x86_64-bin-DVD1.iso",
+            "path": "mirrors/centos/6.9/isos/x86_64/CentOS-6.9-x86_64-bin-DVD1.iso",
+            "sha256": "d27cf37a40509c17ad70f37bc743f038c1feba00476fe6b69682aa424c399ea6"
         },
         {
             "type" : "url",
-            "name" : "Clamav Main",
-            "url" : "http://database.clamav.net/main.cvd"
+            "name" : "Centos 6.9 iso DVD 2",
+            "url" : "http://mirror.nsc.liu.se/centos-store/6.9/isos/x86_64/CentOS-6.9-x86_64-bin-DVD2.iso",
+            "path": "mirrors/centos/6.9/isos/x86_64/CentOS-6.9-x86_64-bin-DVD2.iso",
+            "sha256": "631b8640460f46a8139a6a7cbbac5f3594d08c32945449b6bbd65234929ce7a4"
         },
         {
             "type" : "url",
-            "name" : "Clamav Daily",
-            "url" : "http://database.clamav.net/daily.cvd"
+            "name" : "Centos 6.9 iso LiveDVD",
+            "url" : "http://mirror.nsc.liu.se/centos-store/6.9/isos/x86_64/CentOS-6.9-x86_64-LiveDVD.iso",
+            "path": "mirrors/centos/6.9/isos/x86_64/CentOS-6.9-x86_64-LiveDVD.iso",
+            "sha256": "ae56f677786673ad476477ed2df84ce80cf5f9b90a44e25146e69ef3cfd02602"
+        },
+        {
+            "type" : "url",
+            "name" : "Centos 6.9 iso minimal",
+            "url" : "http://mirror.nsc.liu.se/centos-store/6.9/isos/x86_64/CentOS-6.9-x86_64-minimal.iso",
+            "path": "mirrors/centos/6.9/isos/x86_64/CentOS-6.9-x86_64-minimal.iso",
+            "sha256": "422af57b493b8af49d485885a730c5a1d955f803fac85aa51311c393168b9080"
+        },
+
+        {
+            "type" : "url",
+            "name" : "Centos 6.10 iso DVD 1",
+            "url" : "http://mirrors.ircam.fr/pub/CentOS/6.10/isos/x86_64/CentOS-6.10-x86_64-bin-DVD1.iso",
+            "path": "mirrors/centos/6.10/isos/x86_64/CentOS-6.10-x86_64-bin-DVD1.iso",
+            "sha256": "a68e46970678d4d297d46086ae2efdd3e994322d6d862ff51dcce25a0759e41c"
+        },
+        {
+            "type" : "url",
+            "name" : "Centos 6.10 iso DVD 2",
+            "url" : "http://mirrors.ircam.fr/pub/CentOS/6.10/isos/x86_64/CentOS-6.10-x86_64-bin-DVD2.iso",
+            "path": "mirrors/centos/6.10/isos/x86_64/CentOS-6.10-x86_64-bin-DVD2.iso",
+            "sha256": "723ca530171faf29728b8fe7bb6d05ca2ceb6ba9e09d73ed89f2c0ff693e77a5"
+        },
+        {
+            "type" : "url",
+            "name" : "Centos 6.10 iso LiveDVD",
+            "url" : "http://mirrors.ircam.fr/pub/CentOS/6.10/isos/x86_64/CentOS-6.10-x86_64-LiveDVD.iso",
+            "path": "mirrors/centos/6.10/isos/x86_64/CentOS-6.10-x86_64-LiveDVD.iso",
+            "sha256": "1375342d72579d0816ad60a8a27c1acfa81d18fbe7cef20cbd08c8fedd2fa475"
+        },
+        {
+            "type" : "url",
+            "name" : "Centos 6.10 iso minimal",
+            "url" : "http://mirrors.ircam.fr/pub/CentOS/6.10/isos/x86_64/CentOS-6.10-x86_64-minimal.iso",
+            "path": "mirrors/centos/6.10/isos/x86_64/CentOS-6.10-x86_64-minimal.iso",
+            "sha256": "7c0dee2a0494dabd84809b72ddb4b761f9ef92b78a506aef709b531c54d30770"
+        },
+
+
+
+
+
+        {
+            "type" : "url",
+            "name" : "Centos 7.4 iso ",
+            "url" : "http://mirror.nsc.liu.se/centos-store/7.4.1708/isos/x86_64/CentOS-7-x86_64-Everything-1708.iso",
+            "path": "mirrors/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-Everything-1708.iso",
+            "sha256": "8593f5a1631ebfb7581193a7b4ef96d44f500d3ceb49cc4cfbfd71d5698e4173"
+        },
+        {
+            "type" : "url",
+            "name" : "Centos 7.5 iso ",
+            "url" : "http://mirror.nsc.liu.se/centos-store/7.5.1804/isos/x86_64/CentOS-7-x86_64-Everything-1810.iso",
+            "path": "mirrors/centos/7.5.1804/isos/x86_64/CentOS-7-x86_64-Everything-1804.iso",
+            "sha256": "99723c8b87dcec21df8aed23de1eb810346d42cfd2a3fafafe70a68296053417"
+        },
+        {
+            "type" : "url",
+            "name" : "Centos 7.6 iso ",
+            "url" : "http://mirrors.ircam.fr/pub/CentOS/7.6.1810/isos/x86_64/CentOS-7-x86_64-Everything-1810.iso",
+            "path": "mirrors/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-Everything-1810.iso",
+            "sha256": "918975cdf947e858c9a0c77d6b90a9a56d9977f3a4496a56437f46f46200cf71"
+        },
+
+        
+        {
+            "type" : "copy",
+            "name" : "Clamav bytecode",
+            "src" : "/var/lib/clamav/bytecode.cvd",
+            "path": "mirrors/Clamav/bytecode.cvd"
+        },
+        {
+            "type" : "copy",
+            "name" : "Clamav main",
+            "src" : "/var/lib/clamav/main.cvd",
+            "path": "mirrors/Clamav/main.cvd"
+        },
+        {
+            "type" : "copy",
+            "name" : "Clamav daily",
+            "src" : "/var/lib/clamav/daily.cvd",
+            "path": "mirrors/Clamav/daily.cvd"
         },
         {
             "type" : "copy",
             "name" : "Sophos AV update",
-            "post-command" : "sudo /opt/sophos-av/bin/savupdate --force",
-            "src" : "/opt/sophos-av/update/cache/"
+            "src" : "/opt/sophos-av/update/cache/",
+            "path": "mirrors/SophosAV/database"
         }
-		
-		
-		
-		
+
     ]
 }

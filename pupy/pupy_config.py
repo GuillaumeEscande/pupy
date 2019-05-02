@@ -8,7 +8,7 @@ The pupy configuration module
 
 import json
 
-from datasources.datasource import DataSource
+from pupy.datasources.datasource import DataSource
 
 class PupyConfig( object ):
     """A config for pupy"""
@@ -51,3 +51,17 @@ class PupyConfig( object ):
         Return name string
         """
         return self.json_data["name"] 
+
+    @property
+    def process( self ):
+        """
+        Return process string
+        """
+        return int(self.json_data["process"] )
+
+    @property
+    def thread( self ):
+        """
+        Return thread string
+        """
+        return int(self.json_data["thread"] )
