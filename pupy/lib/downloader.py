@@ -40,25 +40,27 @@ class Downloader():
         if path :
 
             update = False
-            LOGGER.info(u"Get file %s " %(self.__url))
+            LOGGER.debug(u"Get file %s " %(self.__url))
 
             if not os.path.isfile(path) :
-                LOGGER.info(u"Téléchargement du fichier")
+                LOGGER.info(u"Téléchargement du fichier %s", self.__url)
                 update = True
             elif checksum is not None:
                 if checksum_type == "sha256":
                     h = hashlib.sha256()
+                elif checksum_type == "sha":
+                    h = hashlib.sha1()
                 else : 
-                    raise Esception("checksun type inconnue : " + checksum_type)
+                    raise Exception("checksun type inconnue : " + checksum_type)
                 with open(path, 'rb', buffering=0) as f:
                     for b in iter(lambda : f.read(128*1024), b''):
                         h.update(b)
                 calculated = h.hexdigest()
                 if checksum != calculated:
-                    LOGGER.info(u"Different checksum -> mise à jour du fichier")
+                    LOGGER.debug(u"Different checksum -> mise à jour du fichier")
                     update = True
                 else :
-                    LOGGER.info(u"Déjà présent et déjà à jour")
+                    LOGGER.debug(u"Déjà présent et déjà à jour")
             else :
                 update = True
 

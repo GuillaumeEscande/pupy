@@ -13,12 +13,12 @@ import logging
 import sys
 
 
-import pupy_config
-from commands import update
+from pupy import pupy_config
+from pupy.commands import update
 
-import _version
+import pupy._version
 
-__version__ = _version.get_versions()['version']
+__version__ = pupy._version.get_versions()['version']
 
 LOGGER = logging.getLogger(__name__)
 logging.root.setLevel( logging.INFO )
@@ -26,7 +26,7 @@ logging.root.setLevel( logging.INFO )
 
 sys.stdout = sys.__stdout__
 root = logging.getLogger()
-root.setLevel(logging.DEBUG)
+root.setLevel(logging.INFO)
 root.addHandler(logging.StreamHandler(sys.stdout))
 
 

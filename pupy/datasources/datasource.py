@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import distutils
+
 """
 The datasource definitions for pupy data import
 """
-
 
 class DataSource(object):
     """The generic datasource model"""
@@ -22,15 +23,23 @@ class DataSource(object):
         """Return the name"""
         return self.jsondata['name']
 
+    @property
+    def enable(self):
+        """Return the enable"""
+        enable = True
+        if 'enable' in self.jsondata :
+          enable = distutils.util.strtobool(self.jsondata['enable'])
+        return enable
+
 
     
 
     @staticmethod
     def load( json_datasource ):
         
-        from datasources import rhrepo
-        from datasources import url
-        from datasources import copy
+        from pupy.datasources import rhrepo
+        from pupy.datasources import url
+        from pupy.datasources import copy
 
         if json_datasource['type'] == 'rhrepo':
             return rhrepo.RhRepo( json_datasource )
@@ -39,4 +48,4 @@ class DataSource(object):
         elif json_datasource['type'] == 'copy':
             return copy.Copy( json_datasource )
         else :
-            return None
+            return DataSource(json_datasource)
