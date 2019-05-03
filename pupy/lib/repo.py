@@ -19,6 +19,8 @@ from pupy.lib import downloader
 
 
 import concurrent.futures
+from datetime import datetime
+import dateparser.parser
 
 LOGGER = logging.getLogger(__name__)
 
@@ -30,11 +32,17 @@ def download_file(url, proxy, path, checksum, checksum_type):
 class Repo():
     """The generic datasource model"""
 
-    def __init__(self, url, proxy, nb_threads = 1):
+    def __init__(self, url, proxy, nb_threads = 1, expiration = None):
         """Initialize"""
         self.__url = url
         self.__proxy = proxy
         self.__nb_threads = nb_threads
+
+        self.__expiration = expiration
+        if expiration is not None :
+            self.__expiration = dateparser.parse(expiration)
+            if self.__expiration is None :
+                raise Exception("Erreur de convertion de la date  %s ", expiration)
         
 
     def reposync(self, path):
@@ -82,6 +90,14 @@ class Repo():
                 checksum_node = child.getElementsByTagName("checksum")[0]
                 checksum = checksum_node.firstChild.nodeValue
                 checksum_type = checksum_node.getAttribute('type')
-                
-                futures.append(executor.submit(download_file, self.__url + location, self.__proxy, os.path.join(package_dir,filename), checksum, checksum_type))
+                creation_date = child.getElementsByTagName("time")[0].getAttribute('build')
+                creation_date = datetime.fromtimestamp(int(creation_date))
+
+                download_file_ok = True
+                if self.__expiration is not None:
+                    if creation_date < self.__expiration:
+                        download_file_ok = False
+                                        
+                if download_file_ok == True:
+                    futures.append(executor.submit(download_file, self.__url + location, self.__proxy, os.path.join(package_dir,filename), checksum, checksum_type))
             concurrent.futures.wait(futures)
