@@ -1,10 +1,10 @@
 {
     "name" : "Platefrome UCD",
 
-    "workspace" : "/data/pupy",
+    "workspace" : "/mnt/d/PLATEFORME/DATA/pupy",
 
-    "process": "8",
-    "thread": "10",
+    "process": "2",
+    "thread": "4",
 
     "datasources" : [
 	
