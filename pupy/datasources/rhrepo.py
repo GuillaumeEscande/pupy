@@ -36,6 +36,10 @@ class RhRepo(datasource.DataSource):
         if not os.path.exists(working_dir):
             os.makedirs(working_dir)
         
-        rhrepo = repo.Repo( self.jsondata['url'], args.proxy, config.thread )
+        expiration = None
+        if "expiration" in self.jsondata:
+            expiration = self.jsondata['expiration']
+
+        rhrepo = repo.Repo( self.jsondata['url'], args.proxy, config.thread, expiration)
 
         rhrepo.reposync(working_dir)

@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import distutils
+
 """
 The datasource definitions for pupy data import
 """
@@ -21,6 +23,14 @@ class DataSource(object):
         """Return the name"""
         return self.jsondata['name']
 
+    @property
+    def enable(self):
+        """Return the enable"""
+        enable = True
+        if 'enable' in self.jsondata :
+          enable = distutils.util.strtobool(self.jsondata['enable'])
+        return enable
+
 
     
 
@@ -38,4 +48,4 @@ class DataSource(object):
         elif json_datasource['type'] == 'copy':
             return copy.Copy( json_datasource )
         else :
-            return None
+            return DataSource(json_datasource)

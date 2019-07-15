@@ -11,7 +11,7 @@ import os
 from slugify import slugify
 
 from pupy.datasources import datasource
-from shutil import copyfile, copy2
+import shutil
 
 
 LOGGER = logging.getLogger(__name__)
@@ -33,11 +33,18 @@ class Copy(datasource.DataSource):
         working_dir = os.path.join(workspace,path)
 
         if os.path.isfile( self.jsondata['src'] ) :
-            path = os.path.join(os.path.basename(self.jsondata['src']))
-            copyfile(self.jsondata['src'], path)
+            working_parent_dir = os.path.dirname(working_dir)
+
+            if not os.path.exists(working_parent_dir):
+                os.makedirs(working_parent_dir)
+
+            shutil.copyfile(self.jsondata['src'], working_dir)
 
         elif os.path.isdir( self.jsondata['src'] ) :
-            copy2(self.jsondata['src'], path)
+            if not os.path.exists(working_dir):
+                os.makedirs(working_dir)
+            shutil.rmtree(working_dir)
+            shutil.copytree(self.jsondata['src'], working_dir)
 
         else:
             LOGGER.error('Source path %s do not exist', self.jsondata['src'])
